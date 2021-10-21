@@ -14,8 +14,6 @@ export default Vue.extend({
     TodoAdd,
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
 });
 </script>

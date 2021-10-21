@@ -1,0 +1,14 @@
+.welcome-container {
+  text-align: center;
+  &__text {
+    margin-bottom: 4px;
+  }
+  &__header {
+    display: 2;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+  &__subhead {
+    font-weight: normal;
+  }
+}
