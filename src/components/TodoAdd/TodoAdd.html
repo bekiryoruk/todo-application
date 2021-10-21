@@ -1,12 +1,15 @@
 <v-container>
   <v-row class="todo-app">
-    <v-col class="mb-4">
-      <v-text-field
-        class="todo-app__todo-input"
-        label="What needs to be done?"
-        @keyup.enter="addTodo"
-        v-model="newTodo"
-      ></v-text-field>
+    <v-col class="todo-app__whole-part">
+      <div class="todo-app__input-field">
+        <v-text-field
+          class="todo-app__todo-input"
+          label="What needs to be done?"
+          @keyup.enter="addTodo"
+          v-model="newTodo"
+        ></v-text-field>
+        <v-btn @click="addTodo" class="todo-app__add-button">ADD</v-btn>
+      </div>
       <div
         v-for="(todo, index) in todos"
         :key="todo.id"

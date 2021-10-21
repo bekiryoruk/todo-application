@@ -1,12 +1,37 @@
 .todo-app {
+  &__whole-part {
+    margin-bottom: 4px;
+  }
+
+  &__input-field {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
   &__todo-input {
-    width: 100%;
+    width: 70%;
     padding: 10px 18px;
     font-size: 18px;
     margin-bottom: 16px;
 
     &:focus {
       outline: 0;
+    }
+  }
+
+  &__add-button {
+    background-color: crimson;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+    margin-left: 14px;
+    &:hover {
+      color: black;
     }
   }
 
@@ -26,7 +51,7 @@
     cursor: pointer;
     margin-left: 14px;
     &:hover {
-      color: black;
+      color: crimson;
     }
   }
 
