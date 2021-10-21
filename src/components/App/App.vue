@@ -3,14 +3,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Todo from '../Todo/Todo.vue';
+import Welcome from '../Welcome/Welcome.vue';
 import TodoAdd from '../TodoAdd/TodoAdd.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    Todo,
+    Welcome,
     TodoAdd,
   },
 
