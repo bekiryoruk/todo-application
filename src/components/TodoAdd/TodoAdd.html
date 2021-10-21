@@ -1,0 +1,27 @@
+<v-container>
+  <v-row class="todo-app">
+    <v-col class="mb-4">
+      <v-text-field
+        class="todo-app__todo-input"
+        label="What needs to be done?"
+        @keyup.enter="addTodo"
+        v-model="newTodo"
+      ></v-text-field>
+      <div
+        v-for="(todo, index) in todos"
+        :key="todo.id"
+        class="todo-app__todo-item"
+      >
+        <div class="todo-app__left">
+          <v-checkbox v-model="todo.completed"></v-checkbox>
+          <div :class="{'todo-app__completed': todo.completed}">
+            {{todo.description}}
+          </div>
+        </div>
+        <div class="todo-app__remove-item" @click="removeTodo(index)">
+          &times
+        </div>
+      </div>
+    </v-col>
+  </v-row>
+</v-container>

@@ -1,0 +1,37 @@
+.todo-app {
+  &__todo-input {
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 18px;
+    margin-bottom: 16px;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &__todo-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__remove-item {
+    cursor: pointer;
+    margin-left: 14px;
+    &:hover {
+      color: black;
+    }
+  }
+
+  &__completed {
+    text-decoration: line-through;
+    color: gray;
+  }
+}
