@@ -27,8 +27,9 @@ export default Vue.extend({
         variables: {
           description: this.newTodo,
         },
-        refetchQueries: ['todoList'],
       });
+
+      this.$apollo.queries.todos.refetch();
 
       this.newTodo = '';
     },
@@ -38,8 +39,8 @@ export default Vue.extend({
         variables: {
           todoId: index,
         },
-        refetchQueries: ['todoList'],
       });
+      this.$apollo.queries.todos.refetch();
     },
   },
 });
