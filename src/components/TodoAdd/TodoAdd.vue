@@ -3,42 +3,43 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { todoDelete, todoAdd, todoList } from '../../graphql';
 
 export default Vue.extend({
   name: 'TodoAdd',
 
   data: () => ({
     newTodo: '',
-    idForTodo: 3,
-    todos: [
-      {
-        id: 1,
-        description: 'Finish Vue Screencast',
-        completed: false,
-      },
-      {
-        id: 2,
-        description: 'Take over world',
-        completed: false,
-      },
-    ],
+    todos: [],
   }),
+  apollo: {
+    todos: {
+      query: todoList,
+    },
+  },
   methods: {
     addTodo() {
       if (this.newTodo.trim().length === 0) {
         return;
       }
-      this.todos.push({
-        id: this.idForTodo,
-        description: this.newTodo,
-        completed: false,
+      this.$apollo.mutate({
+        mutation: todoAdd,
+        variables: {
+          description: this.newTodo,
+        },
+        refetchQueries: ['todoList'],
       });
 
       this.newTodo = '';
-      this.idForTodo++;
     },
     removeTodo(index: number) {
-      this.todos.splice(index, 1);
+      this.$apollo.mutate({
+        mutation: todoDelete,
+        variables: {
+          todoId: index,
+        },
+        refetchQueries: ['todoList'],
+      });
     },
   },
 });
