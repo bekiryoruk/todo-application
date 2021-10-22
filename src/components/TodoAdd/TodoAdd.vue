@@ -30,9 +30,13 @@ export default Vue.extend({
         },
       });
 
-      this.$apollo.queries.todos.refetch();
-
       this.newTodo = '';
+      // below functiong not working properly
+      // so, I decided to use window.location.reload()
+
+      // this.$apollo.queries.todos.refetch();
+
+      window.location.reload();
     },
     removeTodo(index: number) {
       this.$apollo.mutate({
@@ -41,7 +45,8 @@ export default Vue.extend({
           todoId: index,
         },
       });
-      this.$apollo.queries.todos.refetch();
+      // this.$apollo.queries.todos.refetch();
+      window.location.reload();
     },
 
     checkboxUpdated(todo: Todo) {
@@ -53,7 +58,8 @@ export default Vue.extend({
           isDone: todo.isDone,
         },
       });
-      this.$apollo.queries.todos.refetch();
+      // this.$apollo.queries.todos.refetch();
+      window.location.reload();
     },
   },
 });
