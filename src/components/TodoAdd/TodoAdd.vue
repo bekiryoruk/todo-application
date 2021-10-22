@@ -2,8 +2,9 @@
 <style src="./TodoAdd.scss" lang="scss"></style>
 
 <script lang="ts">
+import { Todo } from '@/@types/todo';
 import Vue from 'vue';
-import { todoDelete, todoAdd, todoList } from '../../graphql';
+import { todoDelete, todoAdd, todoList, todoUpdate } from '../../graphql';
 
 export default Vue.extend({
   name: 'TodoAdd',
@@ -38,6 +39,18 @@ export default Vue.extend({
         mutation: todoDelete,
         variables: {
           todoId: index,
+        },
+      });
+      this.$apollo.queries.todos.refetch();
+    },
+
+    checkboxUpdated(todo: Todo) {
+      this.$apollo.mutate({
+        mutation: todoUpdate,
+        variables: {
+          todoId: todo.id,
+          description: todo.description,
+          isDone: todo.isDone,
         },
       });
       this.$apollo.queries.todos.refetch();

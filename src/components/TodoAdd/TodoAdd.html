@@ -16,8 +16,11 @@
         class="todo-app__todo-item"
       >
         <div class="todo-app__left">
-          <v-checkbox v-model="todo.completed"></v-checkbox>
-          <div :class="{'todo-app__completed': todo.completed}">
+          <v-checkbox
+            v-model="todo.isDone"
+            @change="checkboxUpdated(todo)"
+          ></v-checkbox>
+          <div :class="{'todo-app__completed': todo.isDone}">
             {{todo.description}}
           </div>
         </div>
