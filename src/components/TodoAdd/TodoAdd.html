@@ -21,7 +21,11 @@
             @change="checkboxUpdated(todo)"
           ></v-checkbox>
           <div :class="{'todo-app__completed': todo.isDone}">
-            {{todo.description}}
+            <v-text-field
+              class="todo-app__description-text"
+              @keyup.enter="checkboxUpdated(todo)"
+              v-model="todo.description"
+            ></v-text-field>
           </div>
         </div>
         <div class="todo-app__remove-item" @click="removeTodo(todo.id)">

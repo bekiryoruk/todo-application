@@ -11,27 +11,27 @@
   }
 
   &__todo-input {
-    width: 70%;
-    padding: 10px 18px;
-    font-size: 18px;
-    margin-bottom: 16px;
+    width: 70% !important;
+    padding: 10px 18px !important;
+    font-size: 18px !important;
+    margin-bottom: 16px !important;
 
     &:focus {
-      outline: 0;
+      outline: 0 !important;
     }
   }
 
   &__add-button {
-    background-color: crimson;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: crimson !important;
+    color: white !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    margin-bottom: 20px !important;
 
-    cursor: pointer;
-    margin-left: 14px;
+    cursor: pointer !important;
+    margin-left: 14px !important;
     &:hover {
-      color: black;
+      color: black !important;
     }
   }
 
@@ -59,4 +59,12 @@
     text-decoration: line-through;
     color: gray;
   }
+
+  &__description-text {
+    font-size: 22px !important;
+  }
+}
+
+.v-input__slot::before {
+  border-style: none !important;
 }
